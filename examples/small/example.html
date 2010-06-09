@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Small example</title>
+	<link rel="stylesheet" href="../css/juuvy.css" />
+	<script type="text/javascript" src="../../deps/LAB.js"></script>
+	<script>
+	   $LAB
+	   .script("../../deps/jquery-1.4.2.js").wait()
+	   .script("../../deps/raphael-1.4.3.js").wait()
+	   .script("../../juuvy.js").wait()
+	   .wait(function(){
+			// Set path/url to JSON
+			var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/small.json';
+			// Using jQuery's getJSON to fetch JSON data
+		 	$.getJSON(myjson, function(data) {
+				var keys = [];
+				var json = {};
+	            for(i in data) {
+	                keys.push(i);
+	        	}
+				json = data;
+
+				var juvvy = new Juuvy(keys,json);
+				juvvy.juuv_it();
+			});
+	   });
+	</script>
+</head>
+<body>
+<p>juuv?</p>
+	
+</body>
+</html>

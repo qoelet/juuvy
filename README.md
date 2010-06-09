@@ -14,7 +14,7 @@ Check examples for a small example for now.
 
 *screen shots?*
 
-See one at http://kennyshen.github.com/juuvy/
+![juuvy](http://kennyshen.github.com/juuvy/screenshot.png)
 
 *notes*
 

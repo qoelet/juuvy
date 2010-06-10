@@ -11,17 +11,27 @@
 	   .wait(function(){
 			// Set path/url to JSON
 			var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/small.json';
+			
+			// Setting up Raphael
+			var paper = Raphael(50, 50, 800, 650);
+	        var layer = paper.image("../media/bg.gif", 0,0,800,650);
+	
+			// Setting up Juuvy
+			var juuvies = new Array();
+			var font = "Georgia";
+			var keyfontsize = "10px";
+			var valfontsize = "14px";
+			var orbcol = "white";
+			var orbkeycol = "grey"; 
+			var orbvalcol = "red";
+			
 			// Using jQuery's getJSON to fetch JSON data
 		 	$.getJSON(myjson, function(data) {
-				var keys = [];
-				var json = {};
-	            for(i in data) {
-	                keys.push(i);
-	        	}
-				json = data;
-
-				var juvvy = new Juuvy(keys,json);
-				juvvy.juuv_it();
+				var json = data;
+				for (i in json) {
+					juuvies[i] = new Juuvy(i,json[i], font, keyfontsize, valfontsize, orbcol, orbkeycol, orbvalcol, paper);
+					juuvies[i].juuv_it();
+				}
 			});
 	   });
 	</script>

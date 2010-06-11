@@ -39,8 +39,8 @@
     // Make orbs
     Juuvy.prototype.juuv_it = function() {
         // plot orbs
-        if(this.val.toString().replace(/\s+/g,'').length > 0) {}
-        else {this.opc = 0.4}
+        if(this.val.toString().replace(/\s+/g,'').length > 0) { this.opc = 1 }
+        else {this.opc = 0.5}
         this.orb = this.paper.circle(this.x, this.y, this.orbsize);
         this.orb.attr({fill:this.orbcol,stroke:this.orbcol,opacity:this.opc});
         var path_data = "M400 300L" + this.x + " " + this.y;

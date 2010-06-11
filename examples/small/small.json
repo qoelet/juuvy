@@ -1,8 +1,9 @@
 {
-	"name":"kenny shen",
+	"name":"kenny",
 	"age": 27,
 	"location":"Singapore",
 	"telephone": 123456789,
 	"gender": "male",
+	"empty_key": "",
 	"code": ["javascript","python","html","css","ruby","erlang"]
 }

@@ -12,7 +12,10 @@
 <script type="text/javascript" src="../../juuvy.js"></script>
 <script type="text/javascript">
 	// Set path/url to JSON
-	var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/couchdb.json';
+	// -- a local example
+	//var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/couchdb_.json';
+	// -- twitter public timeline
+	var myjson = 'http://search.twitter.com/trends.json?callback=?';
 
 	// Setting up Raphael
 	var paper = Raphael(50, 50, 800, 650);
@@ -34,15 +37,31 @@
 			var json = data;
 			for (i in json) {
 				juuvies[i] = new Juuvy(i,json[i], font, keyfontsize, valfontsize, orbsize, orbcol, orbkeycol, orbvalcol, paper);
-				juuvies[i].juuv_it();
+				var res = juuvies[i].juuv_it(); // if nested data, return is [data, x(parent orb), y] else undefined
 				
-				// assign for info bar
+				// assign for info bar & other ideas for customisation
 				(function(){
+					// some simple methods to return objects from Juuvy
 					var mykeytxt = juuvies[i].give_key();
 					var myvaltxt = juuvies[i].give_val();
+					var myorb = juuvies[i].give_orb();
+					var myorbval = juuvies[i].give_orbval();
+					// and using Raphael to do stuff
 				    juuvies[i].orb.node.onmouseover = function() { mykeytxt.show();myvaltxt.show(); };
 					juuvies[i].orb.node.onmouseout = function() { mykeytxt.hide();myvaltxt.hide(); };
+					juuvies[i].orb.node.onclick = function() { 
+						myorb.attr({fill:"yellow",stroke:"grey","stroke-opacity":0.5,"stroke-width":5, r:(orbsize*1.2)});
+						myorbval.attr({"font-weight":"bold"});
+					};
 				})();
+				
+				// secondary branching, if any 
+				// -- TODO: to introduce recursion.
+				if(typeof(res) != "undefined") { 
+					for (i in res[0]) {
+						console.log(res[0][i]);
+					}
+				}
 			}
 		});
     });

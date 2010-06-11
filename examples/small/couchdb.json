@@ -1,0 +1,12 @@
+{
+    "db_name": "central_db",
+    "doc_count": 39374,
+    "doc_del_count": 3,
+    "update_seq": 40139,
+    "purge_seq": 0,
+    "compact_running": false,
+    "disk_size": 47149156,
+    "instance_start_time": "1276247413471579",
+    "disk_format_version": 5,
+	"empty": ""
+}

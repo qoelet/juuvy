@@ -21,3 +21,6 @@
 
 3. ability to hide/unhide orbs
 
+* 0.3 wishlist *
+
+1. Plugin for CouchDB (via Couchapp)

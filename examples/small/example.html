@@ -1,43 +1,51 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Small example</title>
 	<link rel="stylesheet" href="../css/juuvy.css" />
-	<script type="text/javascript" src="../../deps/LAB.js"></script>
-	<script>
-	   $LAB
-	   .script("../../deps/jquery-1.4.2.js").wait()
-	   .script("../../deps/raphael-1.4.3.js").wait()
-	   .script("../../juuvy.js").wait()
-	   .wait(function(){
-			// Set path/url to JSON
-			var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/small.json';
-			
-			// Setting up Raphael
-			var paper = Raphael(50, 50, 800, 650);
-	        var layer = paper.image("../media/bg.gif", 0,0,800,650);
-	
-			// Setting up Juuvy
-			var juuvies = new Array();
-			var font = "Georgia";
-			var keyfontsize = "10px";
-			var valfontsize = "14px";
-			var orbcol = "white";
-			var orbkeycol = "grey"; 
-			var orbvalcol = "red";
-			
-			// Using jQuery's getJSON to fetch JSON data
-		 	$.getJSON(myjson, function(data) {
-				var json = data;
-				for (i in json) {
-					juuvies[i] = new Juuvy(i,json[i], font, keyfontsize, valfontsize, orbcol, orbkeycol, orbvalcol, paper);
-					juuvies[i].juuv_it();
-				}
-			});
-	   });
-	</script>
 </head>
 <body>
 <p>juuv?</p>
-	
+
+<script type="text/javascript" src="../../deps/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="../../deps/raphael-1.4.3.js"></script>
+<script type="text/javascript" src="../../juuvy.js"></script>
+<script type="text/javascript">
+	// Set path/url to JSON
+	var myjson = '/Users/renhuishen/Desktop/Kreybits/juuvy/examples/small/small.json';
+
+	// Setting up Raphael
+	var paper = Raphael(50, 50, 800, 650);
+	var layer = paper.image("../media/bg.gif", 0,0,800,650);
+
+	// Setting up Juuvy
+	var juuvies = new Array();
+	var font = "Georgia";
+	var keyfontsize = "11px";
+	var valfontsize = "12px";
+	var orbsize = 35;
+	var orbcol = "white";
+	var orbkeycol = "grey"; 
+	var orbvalcol = "red";
+
+	$(document).ready(function(){
+		// Using jQuery's getJSON to fetch JSON data
+	 	$.getJSON(myjson, function(data) {
+			var json = data;
+			for (i in json) {
+				juuvies[i] = new Juuvy(i,json[i], font, keyfontsize, valfontsize, orbsize, orbcol, orbkeycol, orbvalcol, paper);
+				juuvies[i].juuv_it();
+				
+				// assign for info bar
+				(function(){
+					var mykeytxt = juuvies[i].give_key();
+					var myvaltxt = juuvies[i].give_val();
+				    juuvies[i].orb.node.onmouseover = function() { mykeytxt.show();myvaltxt.show(); };
+					juuvies[i].orb.node.onmouseout = function() { mykeytxt.hide();myvaltxt.hide(); };
+				})();
+			}
+		});
+    });
+</script>
 </body>
 </html>

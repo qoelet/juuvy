@@ -2,7 +2,7 @@
 	"name":"kenny shen",
 	"age": 27,
 	"location":"Singapore",
-	"telephone": 91521542,
+	"telephone": 123456789,
 	"gender": "male",
-	"code": "javascript"
+	"code": ["javascript","python","html","css","ruby","erlang"]
 }

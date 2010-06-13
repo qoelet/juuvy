@@ -12,12 +12,12 @@ Well, even though JSON is by itself readable, I once had to work with some compl
 
 Check examples for a small example for now.
 
-*screen shots?*
-
-![juuvy](http://kennyshen.github.com/juuvy/screenshot.png)
-
 *notes*
 
 It's still crude. But more fixes and fleshing out on this idea when I can get the time!
+
+*screen shots?*
+
+![juuvy](http://kennyshen.github.com/juuvy/screenshot.png)
 
 

@@ -50,16 +50,21 @@
 				    juuvies[i].orb.node.onmouseover = function() { mykeytxt.show();myvaltxt.show(); };
 					juuvies[i].orb.node.onmouseout = function() { mykeytxt.hide();myvaltxt.hide(); };
 					juuvies[i].orb.node.onclick = function() { 
-						myorb.attr({fill:"yellow",stroke:"grey","stroke-opacity":0.5,"stroke-width":5, r:(orbsize*1.2)});
+						myorb.attr({fill:"90-yellow-white",stroke:"grey","stroke-opacity":0.5,"stroke-width":5, r:(orbsize*1.2)});
 						myorbval.attr({"font-weight":"bold"});
 					};
 				})();
 				
 				// secondary branching, if any 
 				// -- TODO: to introduce recursion.
-				if(typeof(res) != "undefined") { 
+				if(typeof(res) != "undefined") {
+					var x = res[1];
+					var y = res[2] - orbsize;
+					y = y - 15;
 					for (i in res[0]) {
-						console.log(res[0][i]);
+						paper.text(x,y, res[0][i]).attr({font:"10px Georgia", fill:"orange"});
+						paper.path("M" + (x-25) + " " + (y-10) + " L" + (x+25) + " "+ (y-10)).attr({stroke:"white","stroke-width ":1,"stroke-dasharray":"--"});
+						y -= 20;
 					}
 				}
 			}

@@ -4,7 +4,7 @@
  * Kenny Shen (http://www.northpole.sg)
  */
  
-(function(window) {
+(function() {
     // Construct a Juuvy.
     function Juuvy(key, val, font, keyfontsize, valfontsize, orbsize, orbcol, orbkeycol, orbvalcol, paper){
         this.key = key;
